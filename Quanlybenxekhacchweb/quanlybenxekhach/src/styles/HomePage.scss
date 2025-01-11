@@ -1,0 +1,285 @@
+// @import './variables';
+// @import './mixins';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Đảm bảo tính toán padding và border chính xác */
+}
+
+/* Homepage Styles */
+.homepage {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  font-family: Roboto;
+
+  .slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    user-select: none;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+  
+    .slick-list {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      width: 1500px;
+      height: 50%;
+    }
+  
+    .slick-track {
+      display: block !important;
+      align-items: center;
+    }
+  
+    .slick-slide {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // width: 100%;
+      // height: 100%; // Đảm bảo chiều cao của slide khớp với chiều cao định nghĩa
+  
+      .banner-image {
+        // display: block;
+        // width: 400px;
+        // height: auto;
+        // object-fit: cover;
+        width: 100%; // Chiều rộng 100%
+        height: 100%; // Chiều cao khớp với container
+        object-fit: cover; // Đảm bảo ảnh bao phủ toàn bộ vùng slider mà không bị méo
+      }
+    }
+  
+    .slick-prev, .slick-next {
+      color: #000;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+  
+      &:hover {
+        background: rgba(255, 255, 255, 0.8);
+      }
+    }
+  
+    .slick-prev {
+      left: 10px;
+    }
+  
+    .slick-next {
+      right: 10px;
+    }
+  
+    .slick-dots {
+      bottom: 10px;
+  
+      li {
+        margin: 0 5px;
+  
+        button {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #ddd;
+  
+          &:before {
+            display: none;
+          }
+        }
+  
+        &.slick-active button {
+          background: #000;
+        }
+      }
+    }
+  }
+
+  /* Banner Section */
+  .banner {
+    width: 100vw; /* Đảm bảo chiếm toàn bộ chiều ngang màn hình */
+    min-height: 300px; /* Chiều cao tối thiểu của banner */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/image/background.jpg') no-repeat center center; /* Gradient + background image */
+    background-size: cover; /* Đảm bảo ảnh nền phủ toàn bộ */
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem; /* Tăng padding cho không gian rộng rãi */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    position: relative;
+    top: 0;
+  
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Thêm bóng chữ để dễ nhìn hơn */
+      word-wrap: break-word; /* Ngăn chữ dài bị tràn */
+      color: lightgreen;
+    }
+  
+    .lead {
+      font-size: 1.5rem;
+      max-width: 800px;
+      line-height: 1.6;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Thêm bóng chữ cho dòng mô tả */
+      color: lightgreen;
+    }
+    
+    
+    /* Đảm bảo không bị ảnh hưởng bởi các lớp cha */
+    margin: 0;
+    overflow: hidden; /* Ngăn bất kỳ phần tử con nào tràn ra */
+  }
+
+  /* Remaining content */
+  .content {
+    width: 100vw;
+    // max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    // background-color: aquamarine;
+   
+    
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #00613d;
+      font-size: 2.5rem;
+    }
+    h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #00613d;
+      font-size: 2rem;
+    }
+    .bus-container{
+      
+      width: 100%;
+      .buses {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+  
+        .bus-card {
+          background: white;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          padding: 1rem;
+          text-align: center;
+          width: calc(33.33% - 2rem);
+          // margin: 1rem;
+          gap: 1rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s, box-shadow 0.3s;
+  
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+          }
+  
+          img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+          }
+  
+          h5 {
+            margin: 0 auto;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+          }
+  
+          p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #000;
+          }
+  
+          button {
+            background-color: #800000;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+  
+            &:hover {
+              background-color: darken(red, 10%);
+            }
+          }
+        }
+      }
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+  
+      th {
+        background: #f1f1f1;
+        font-weight: bold;
+      }
+  
+      tr:nth-child(even) {
+        background: #f9f9f9;
+      }
+  
+      button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 5px;
+  
+        &:first-of-type {
+          background: #ffc107;
+          color: #fff;
+  
+          &:hover {
+            background: #e0a800;
+          }
+        }
+  
+        &:last-of-type {
+          background: #dc3545;
+          color: #fff;
+  
+          &:hover {
+            background: #c82333;
+          }
+        }
+      }
+      
+    }
+  }
+  
+}

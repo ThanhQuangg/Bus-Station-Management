@@ -1,0 +1,191 @@
+// @import './variables';
+// @import './mixins';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.custom-header {
+  // background: url('../assets/image/header.jpg') no-repeat center center;
+  background-color: #1e293b;
+  background-size: cover;
+  color: #ffffff;
+  font-family: Roboto;
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    height: 80px;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      /* Logo */
+      .navbar-brand {
+        margin-left: 25px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+
+        .brand-logo {
+          height: 50px;
+          width: auto;
+          margin-left: 50px;
+        }
+
+        span {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: lightcyan;
+        }
+      }
+
+      /* Toggler */
+      .navbar-toggler {
+        border: 1px solid #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        background-color: transparent;
+        transition: all 0.3s;
+
+        .navbar-toggler-icon {
+          background-color: #facc15;
+          width: 24px;
+          height: 24px;
+        }
+
+        &:hover {
+          background-color: rgba(250, 204, 21, 0.1);
+        }
+      }
+
+      /* Menu */
+      .navbar-collapse {
+        .navbar-nav {
+          display: flex;
+          gap: 1.5rem;
+          list-style: none;
+          margin-left: 20px;
+
+          .nav-item {
+            position: relative; /* Định vị để dropdown có thể hiển thị chính xác */
+
+            /* .nav-link chung cho tất cả các link */
+            .nav-link, .dropdown-toggle {
+              font-size: 1.1rem;
+              text-decoration: none;
+              color: #ffffff;
+              padding: 0.5rem 0.5rem;
+              border-radius: 0.25rem;
+              transition: all 0.3s;
+
+              &:hover {
+                background-color: lightblue;
+              }
+
+              &.active {
+                font-weight: bold;
+                color: lightgreen
+                
+              }
+            }
+
+            /* Dropdown menu */
+            .dropdown-menu {
+              display: none;
+              position: absolute;
+              top: calc(100% + 5px); /* Hiển thị ngay dưới toggle */
+              left: 0;
+              z-index: 1050; /* Đảm bảo dropdown nằm trên các phần tử khác */
+              background-color: #ffffff;
+              border-radius: 0.25rem;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              padding: 0.5rem;
+              min-width: 200px;
+              overflow: visible;
+
+              li {
+                .dropdown-item {
+                  display: block;
+                  padding: 0.5rem 1rem;
+                  color: #1e293b;
+                  text-decoration: none;
+                  transition: all 0.3s;
+
+                  &:hover {
+                    background-color: rgba(30, 41, 59, 0.1);
+                    color: #1e293b;
+                  }
+                }
+              }
+            }
+
+            /* Hiển thị dropdown khi hover cho Loại sản phẩm */
+            &:hover .dropdown-menu {
+              display: block;
+            }
+          }
+
+          /* Hiển thị dropdown khi nhấn cho Admin */
+          .dropdown-toggle[data-bs-toggle="dropdown"] {
+            &.show + .dropdown-menu {
+              display: block;
+            }
+          }
+        }
+      }
+
+      /* Tìm kiếm và các nút đăng nhập/đăng xuất */
+      .navbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 120px;
+        .search-bar {
+          position: relative;
+
+          .search-input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border-radius: 0.25rem;
+            border: none;
+            outline: none;
+            width: 150px;
+
+            &::placeholder {
+              color: #aaa;
+            }
+          }
+        }
+
+        .auth-actions {
+          display: flex;
+          gap: 1rem;
+          .text{
+            padding-right: 15px;
+            white-space: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+          }
+
+          .btn {
+            background-color: #facc15;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            color: #1e293b;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: #e0a800;
+            }
+          }
+        }
+      }
+    }
+  }
+}

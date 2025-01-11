@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+footer {
+  background-color: #343a40; /* Màu nền tối cho footer */
+  color: white;
+  padding: 3rem 0; /* Tăng padding để footer trông rộng rãi và dễ nhìn */
+  font-family: Roboto;
+
+  .container {
+    margin: 25px;
+    .row {
+      display: flex;
+      flex-wrap: wrap; /* Đảm bảo các cột có thể xuống dòng trên các màn hình nhỏ */
+      justify-content: space-between; /* Các cột phân bố đều */
+      gap: 2rem; /* Khoảng cách giữa các cột */
+
+      .col-md-4 {
+        /* Các cột trong footer */
+        flex: 1 1 30%; /* Đảm bảo mỗi cột chiếm khoảng 1/3 chiều rộng */
+        max-width: 30%; /* Giới hạn độ rộng tối đa của mỗi cột */
+        h5 {
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+          font-weight: bold; /* Làm đậm tiêu đề */
+        }
+
+        p {
+          font-size: 0.9rem;
+          line-height: 1.5; /* Tăng khoảng cách dòng cho dễ đọc */
+        }
+
+        .footer-links {
+          list-style-type: none; /* Loại bỏ dấu chấm */
+          padding-left: 0; /* Loại bỏ khoảng cách trái mặc định */
+          
+          li {
+            margin-bottom: 8px; /* Giảm khoảng cách giữa các mục */
+            
+            a {
+              color: white;
+              text-decoration: none; /* Đảm bảo các liên kết không có gạch chân */
+              transition: color 0.3s ease;
+              
+              &:hover {
+                text-decoration: underline;
+                color: blue;
+              }
+            }
+          }
+        }
+
+        i {
+          margin-right: 0.5rem;
+          color: blue; /* Thêm màu cho icon */
+        }
+      }
+    }
+
+    .text-center {
+      margin-top: 2rem;
+      p {
+        margin: 0;
+        font-size: 15rem;
+        color: rgba(255, 255, 255, 0.7); /* Màu chữ nhẹ hơn cho phần bản quyền */
+      }
+    }
+  }
+}
+
+/* Responsive Design - Footer trên màn hình nhỏ */
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 0; /* Điều chỉnh padding cho màn hình nhỏ */
+    
+    .container {
+      .row {
+        flex-direction: column; /* Đặt các cột thành hàng trên màn hình nhỏ */
+        align-items: center; /* Căn giữa các cột */
+        gap: 1rem; /* Khoảng cách giữa các cột */
+      }
+    }
+  }
+} 
